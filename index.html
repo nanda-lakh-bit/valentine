@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Will you be my Valentine?</title>
+  <style>
+    :root { --bg:#0b0f14; --card:#111826; --text:#eaf0ff; --muted:#a9b6d3; --accent:#7aa2ff; --accent2:#ff7aa2; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(122,162,255,.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(255,122,162,.16), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+    .wrap { width: min(560px, 100%); }
+    .card {
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+    }
+    .top {
+      display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 8px 10px; border-radius: 999px;
+    }
+    h1 { margin: 14px 0 6px; font-size: clamp(24px, 5vw, 34px); line-height: 1.15; }
+    p { margin: 0 0 14px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .heart {
+      font-size: 26px;
+      filter: drop-shadow(0 10px 16px rgba(255,122,162,.25));
+      animation: float 2.6s ease-in-out infinite;
+      user-select: none;
+    }
+    @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+
+    .grid { display: grid; gap: 12px; margin-top: 14px; }
+    .btnRow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 14px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      min-height: 48px; /* tap-friendly */
+      transition: transform .06s ease, filter .2s ease;
+    }
+    button:active { transform: scale(.99); }
+    .yes { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #0b0f14; }
+    .maybe { background: rgba(255,255,255,.08); color: var(--text); border: 1px solid rgba(255,255,255,.12); }
+
+    .panel {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .revealTitle { font-weight: 800; margin-bottom: 6px; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .chip {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--text);
+      user-select: none;
+    }
+    .footer {
+      margin-top: 12px;
+      text-align: center;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+    }
+    @media (max-width: 420px) {
+      .btnRow { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="badge">tiny website, big feelings</div>
+        <div class="heart" aria-hidden="true">💘</div>
+      </div>
+
+      <h1>Will you be my Valentine?</h1>
+      <p>Quick yes/no question. No pressure. But also… there is pressure 😌</p>
+
+      <div class="grid">
+        <div class="btnRow">
+          <button class="yes" id="yesBtn">Yes 💗</button>
+          <button class="maybe" id="noBtn">No 😶</button>
+        </div>
+
+        <div class="panel" id="panel">
+          <div class="revealTitle">If you say yes, you unlock:</div>
+          <div id="line">• A very cute date • Snacks • Your choice of movie • One (1) bragging right</div>
+          <div class="chips">
+            <div class="chip">🍿 movie</div>
+            <div class="chip">🍣 food</div>
+            <div class="chip">🧋 drinks</div>
+            <div class="chip">📸 memories</div>
+            <div class="chip">💬 inside jokes</div>
+          </div>
+        </div>
+
+        <div class="footer">Made with ✨ and mild chaos</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn  = document.getElementById("noBtn");
+    const line   = document.getElementById("line");
+    const panel  = document.getElementById("panel");
+
+    yesBtn.addEventListener("click", () => {
+      line.textContent = "YAY. Correct answer 🥳💗 I’ll text you the plan (or you pick).";
+      panel.style.borderColor = "rgba(122,162,255,.45)";
+    });
+
+    // playful “no” button that becomes silly, not mean
+    const noLines = [
+      "Hmm… are you sure? 😌",
+      "Try again (respectfully) 😇",
+      "This button is for decoration only 🫣",
+      "Your finger slipped. I understand 🥲",
+      "Okay but what if: yes? 💘"
+    ];
+    let i = 0;
+    noBtn.addEventListener("click", () => {
+      line.textContent = noLines[i % noLines.length];
+      i++;
+      // tiny wiggle
+      noBtn.style.filter = "brightness(1.2)";
+      setTimeout(()=> noBtn.style.filter="none", 160);
+    });
+  </script>
+</body>
+</html>
