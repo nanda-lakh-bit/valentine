@@ -266,4 +266,19 @@ PASTE YOUR ENDING SETUP LINE HERE (optional).
 
     // Alternate ending buttons
     const yesBtn = document.getElementById("yesBtn");
-    const obvBtn = document.getElementById(
+    const obvBtn = document.getElementById("obvBtn");
+    const resultBox = document.getElementById("resultBox");
+
+    yesBtn.addEventListener("click", () => {
+      resultBox.style.display = "block";
+      resultBox.innerHTML = `<strong>Correct answer.</strong> ✅<br>Okay ${PERSON_NAME}… it’s a date (when you’re back).`;
+    });
+
+    obvBtn.addEventListener("click", () => {
+      resultBox.style.display = "block";
+      resultBox.innerHTML = `<strong>Best answer.</strong> ✅✅<br>${PERSON_NAME}, you just unlocked: snacks + a proper plan.`;
+    });
+  </script>
+
+</body>
+</html>
