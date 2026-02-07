@@ -16,11 +16,11 @@
     --accent: #ff9ac6;
     --accent2:#7aa2ff;
 
-    /* ✨ Swap these URLs to your preferred Amritsar photos */
+    /* ✨ Updated Amritsar backgrounds */
     --img-intro:   url("https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=1600&q=80");
-    --img-morning: url("https://images.unsplash.com/photo-1520975661595-6453be3f7070?auto=format&fit=crop&w=1600&q=80");
+    --img-morning: url("https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=1600&q=80"); /* NEW */
     --img-streets: url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80");
-    --img-food:    url("https://images.unsplash.com/photo-1604908812358-5d028c8c1b5f?auto=format&fit=crop&w=1600&q=80");
+    --img-food:    url("https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1600&q=80"); /* NEW Punjabi food */
     --img-gold:    url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=80");
     --img-ending:  url("https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80");
   }
@@ -35,7 +35,6 @@
     scroll-behavior:smooth;
   }
 
-  /* Each section gets a background image via --bgimg */
   .section{
     min-height:100vh;
     display:flex;
@@ -44,12 +43,10 @@
     padding: 22px;
     text-align:center;
 
-    /* scroll reveal */
     opacity:0;
     transform: translateY(40px);
     transition: opacity 900ms ease, transform 900ms ease;
 
-    /* background */
     background:
       linear-gradient(180deg, rgba(14,17,23,.78), rgba(14,17,23,.78)),
       var(--bgimg);
@@ -195,7 +192,9 @@
 <section class="section" style="--bgimg: var(--img-morning);">
   <div class="card">
     <h1>Morning</h1>
-    <p>I wake up first. I wake you up to go out, but you ask for warm hugs and cuddles.</p>
+    <p>
+PASTE YOUR MORNING LINE HERE
+    </p>
   </div>
 </section>
 
@@ -214,10 +213,9 @@ She is currently 2 years old.</p>
 <section class="section" style="--bgimg: var(--img-food);">
   <div class="card">
     <h1>Food Stop</h1>
-    <p>You convince me to try something "not carby".
+    <p>You convince me to try something "not carby". It is 99% carbs and fat.
 
-It is 99% carbs and fat.
-You laugh while my brain glitches and I painfully log my macros on ChatGPT.</p>
+You laugh while I proceed to stuff my face anyway, and enjoy every bite!</p>
   </div>
 </section>
 
@@ -304,7 +302,7 @@ Will you be my Valentine?</p>
         life: 90 + Math.random()*40
       });
     }
-    confettiEndAt = performance.now() + 1800; // ~1.8s
+    confettiEndAt = performance.now() + 1800;
     requestAnimationFrame(tickConfetti);
   }
 
@@ -319,8 +317,6 @@ Will you be my Valentine?</p>
       p.rot += p.vr;
       p.life -= 1;
 
-      // draw rectangle confetti (no fixed colors requested; use default black/white? we'll vary alpha only)
-      // Using varied grayscale to avoid specifying a palette
       const shade = 200 + Math.floor(Math.random()*55);
       ctx.save();
       ctx.translate(p.x, p.y);
