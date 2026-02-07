@@ -40,7 +40,6 @@
     p { margin: 0 0 14px; color: var(--muted); font-size: 15px; line-height: 1.6; }
     .heart {
       font-size: 26px;
-      filter: drop-shadow(0 10px 16px rgba(255,122,162,.25));
       animation: float 2.6s ease-in-out infinite;
       user-select: none;
     }
@@ -56,7 +55,7 @@
       font-weight: 700;
       font-size: 15px;
       cursor: pointer;
-      min-height: 48px; /* tap-friendly */
+      min-height: 48px;
       transition: transform .06s ease, filter .2s ease;
     }
     button:active { transform: scale(.99); }
@@ -78,7 +77,6 @@
       border-radius: 999px;
       font-size: 13px;
       color: var(--text);
-      user-select: none;
     }
     .footer {
       margin-top: 12px;
@@ -97,11 +95,13 @@
     <div class="card">
       <div class="top">
         <div class="badge">tiny website, big feelings</div>
-        <div class="heart" aria-hidden="true">💘</div>
+        <div class="heart">💘</div>
       </div>
 
-      <h1>Will you be my Valentine?</h1>
-      <p>Quick yes/no question. No pressure. But also… there is pressure 😌</p>
+      <!-- UPDATED TITLE -->
+      <h1>Baldesh, will you be my Valentine?</h1>
+
+      <p>Quick yes/no question. No pressure. But also... there is pressure 😌</p>
 
       <div class="grid">
         <div class="btnRow">
@@ -111,48 +111,7 @@
 
         <div class="panel" id="panel">
           <div class="revealTitle">If you say yes, you unlock:</div>
-          <div id="line">• A very cute date • Snacks • Your choice of movie • One (1) bragging right</div>
-          <div class="chips">
-            <div class="chip">🍿 movie</div>
-            <div class="chip">🍣 food</div>
-            <div class="chip">🧋 drinks</div>
-            <div class="chip">📸 memories</div>
-            <div class="chip">💬 inside jokes</div>
-          </div>
-        </div>
 
-        <div class="footer">Made with ✨ and mild chaos</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn  = document.getElementById("noBtn");
-    const line   = document.getElementById("line");
-    const panel  = document.getElementById("panel");
-
-    yesBtn.addEventListener("click", () => {
-      line.textContent = "YAY. Correct answer 🥳💗 I’ll text you the plan (or you pick).";
-      panel.style.borderColor = "rgba(122,162,255,.45)";
-    });
-
-    // playful “no” button that becomes silly, not mean
-    const noLines = [
-      "Hmm… are you sure? 😌",
-      "Try again (respectfully) 😇",
-      "This button is for decoration only 🫣",
-      "Your finger slipped. I understand 🥲",
-      "Okay but what if: yes? 💘"
-    ];
-    let i = 0;
-    noBtn.addEventListener("click", () => {
-      line.textContent = noLines[i % noLines.length];
-      i++;
-      // tiny wiggle
-      noBtn.style.filter = "brightness(1.2)";
-      setTimeout(()=> noBtn.style.filter="none", 160);
-    });
-  </script>
-</body>
-</html>
+          <!-- UPDATED REWARD TEXT -->
+          <div id="line">
+            • A very cute date • Sna
