@@ -1,284 +1,150 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>If We Were In Amritsar Together</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>If We Were In Amritsar Together</title>
 
-  <style>
-    :root{
-      --bg:#0e1117;
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.10);
-      --text:#f5f5f5;
-      --muted:#c8c8c8;
-      --accent:#ff9ac6;
-      --accent2:#7aa2ff;
-    }
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 700px at 12% 10%, rgba(122,162,255,.18), transparent 60%),
-        radial-gradient(900px 700px at 88% 18%, rgba(255,154,198,.16), transparent 62%),
-        var(--bg);
-      color: var(--text);
-      scroll-behavior:smooth;
-    }
+<style>
+body{
+margin:0;
+font-family:system-ui, sans-serif;
+background:#0e1117;
+color:#f5f5f5;
+scroll-behavior:smooth;
+}
 
-    .section{
-      min-height: 100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 22px;
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 900ms ease, transform 900ms ease;
-    }
-    .section.show{
-      opacity: 1;
-      transform: translateY(0);
-    }
+.section{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
 
-    .card{
-      width: min(640px, 100%);
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
-      backdrop-filter: blur(8px);
-    }
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
 
-    .kicker{
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.65);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .pill{
-      border: 1px solid rgba(255,255,255,.14);
-      padding: 8px 10px;
-      border-radius: 999px;
-      color: rgba(255,255,255,.70);
-    }
+.container{
+max-width:500px;
+}
 
-    h1{
-      margin: 14px 0 10px;
-      font-size: clamp(26px, 5.5vw, 38px);
-      line-height: 1.12;
-      letter-spacing: -0.01em;
-    }
-    h2{
-      margin: 0 0 12px;
-      font-size: clamp(18px, 4.2vw, 22px);
-      color: rgba(255,255,255,.92);
-      font-weight: 800;
-    }
+h1{
+font-size:28px;
+margin-bottom:20px;
+}
 
-    p{
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.7;
-      color: rgba(255,255,255,.75);
-      white-space: pre-line;
-    }
-
-    .spark{
-      color: var(--accent);
-      filter: drop-shadow(0 10px 16px rgba(255,154,198,.15));
-      user-select:none;
-    }
-
-    .divider{
-      height: 1px;
-      background: rgba(255,255,255,.10);
-      margin: 16px 0;
-      border-radius: 999px;
-    }
-
-    .btnRow{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    button{
-      width:100%;
-      border:0;
-      border-radius: 14px;
-      padding: 14px 14px;
-      font-weight: 800;
-      font-size: 15px;
-      cursor:pointer;
-      min-height: 48px;
-      transition: transform .06s ease, filter .2s ease;
-    }
-    button:active{ transform: scale(.99); }
-    .btnA{
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #0b0f14;
-    }
-    .btnB{
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.92);
-    }
-
-    .result{
-      margin-top: 12px;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.78);
-    }
-    .result strong{ color: rgba(255,255,255,.92); }
-
-    .footer{
-      margin-top: 14px;
-      text-align:center;
-      font-size: 12px;
-      color: rgba(255,255,255,.55);
-    }
-
-    @media (max-width: 420px){
-      .btnRow{ grid-template-columns: 1fr; }
-    }
-  </style>
+p{
+font-size:18px;
+line-height:1.6;
+color:#d4d4d4;
+white-space:pre-line;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ========= SETTINGS =========
-       Put his real name here:
-  -->
-  <script>
-    const PERSON_NAME = "BALDESH"; // <-- replace with his real name (e.g., "Baldesh")
-  </script>
+<!-- INTRO -->
+<section class="section">
+<div class="container">
+<h1>If We Were In Amritsar Together</h1>
+<p>Scroll slowly. This is a tiny alternate timeline.</p>
+</div>
+</section>
 
-  <!-- ========= INTRO ========= -->
-  <section class="section">
-    <div class="card">
-      <div class="kicker">
-        <div class="pill">scroll story</div>
-        <div class="pill spark">🗺️ ✨</div>
-      </div>
+<!-- MORNING -->
+<section class="section">
+<div class="container">
+<h1>Morning</h1>
 
-      <h1>If We Were In Amritsar Together, <span id="nameSlot"></span></h1>
-      <p>
-This is a tiny alternate timeline.
-Scroll slowly. It’s better that way.
-      </p>
-      <div class="footer">made with ✨ and mild chaos</div>
-    </div>
-  </section>
+<p>
+I wake up first. I wake you up to go out, but you ask for warm hugs and cuddles.
+</p>
 
-  <!-- ========= SCENE 1 ========= -->
-  <section class="section">
-    <div class="card">
-      <h2>Morning</h2>
-      <p id="scene1">
-PASTE YOUR SCENE 1 TEXT HERE.
+</div>
+</section>
 
-Example format:
-Line 1.
-Line 2.
-Line 3.
-      </p>
-    </div>
-  </section>
+<!-- STREETS -->
+<section class="section">
+<div class="container">
+<h1>The Streets</h1>
 
-  <!-- ========= SCENE 2 ========= -->
-  <section class="section">
-    <div class="card">
-      <h2>The Streets</h2>
-      <p id="scene2">PASTE YOUR SCENE 2 TEXT HERE.</p>
-    </div>
-  </section>
+<p>
+We step outside into noisy, colourful streets.
+  
+You ask a stranger for directions. He becomes your best friends and promises to invite you to his daughter's wedding.
+She is currently 2 years old.
+</p>
 
-  <!-- ========= SCENE 3 ========= -->
-  <section class="section">
-    <div class="card">
-      <h2>Food Stop</h2>
-      <p id="scene3">PASTE YOUR SCENE 3 TEXT HERE.</p>
-    </div>
-  </section>
+</div>
+</section>
 
-  <!-- ========= SCENE 4 (you asked to keep as-is) ========= -->
-  <section class="section">
-    <div class="card">
-      <h2>Golden Hour</h2>
-      <p id="scene4">
+<!-- FOOD STOP -->
+<section class="section">
+<div class="container">
+<h1>Food Stop</h1>
+
+<p>
+You convince me to try something "not carby".
+  
+It is 99% carbs and fat.
+You laugh while my brain glitches and I painfully log my macros on ChatGPT.
+</p>
+
+</div>
+</section>
+
+<!-- GOLDEN HOUR (UNCHANGED AS REQUESTED) -->
+<section class="section">
+<div class="container">
+<h1>Golden Hour</h1>
+
+<p>
 Later, we slow down.
 
 Walking side by side.
 
 Talking about random things.
 And somehow also important things.
-      </p>
-    </div>
-  </section>
+</p>
 
-  <!-- ========= ENDING WITH ALTERNATE OPTIONS ========= -->
-  <section class="section">
-    <div class="card">
-      <h2>Ending</h2>
-      <p>
-PASTE YOUR ENDING SETUP LINE HERE (optional).
-(Example: “So… quick question.”)
-      </p>
+</div>
+</section>
 
-      <div class="divider"></div>
+<!-- ENDING -->
+<section class="section">
+<div class="container">
+<h1>Ending</h1>
 
-      <div class="btnRow">
-        <button class="btnA" id="yesBtn">Yes ✅</button>
-        <button class="btnB" id="obvBtn">Obviously ✅✅</button>
-      </div>
+<p>
+👉 OPTIONAL: ADD YOUR ENDING MESSAGE HERE
+</p>
 
-      <div class="result" id="resultBox" style="display:none;"></div>
+</div>
+</section>
 
-      <div class="footer">ps: you can screenshot the ending 😌</div>
-    </div>
-  </section>
+<script>
+const sections = document.querySelectorAll(".section");
 
-  <script>
-    // Insert name
-    document.getElementById("nameSlot").textContent = PERSON_NAME;
+function revealSections(){
+sections.forEach(section=>{
+const rect = section.getBoundingClientRect();
+if(rect.top < window.innerHeight - 100){
+section.classList.add("show");
+}
+});
+}
 
-    // Reveal-on-scroll
-    const sections = document.querySelectorAll(".section");
-    const reveal = () => {
-      sections.forEach(sec => {
-        const r = sec.getBoundingClientRect();
-        if (r.top < window.innerHeight - 110) sec.classList.add("show");
-      });
-    };
-    window.addEventListener("scroll", reveal);
-    reveal();
-
-    // Alternate ending buttons
-    const yesBtn = document.getElementById("yesBtn");
-    const obvBtn = document.getElementById("obvBtn");
-    const resultBox = document.getElementById("resultBox");
-
-    yesBtn.addEventListener("click", () => {
-      resultBox.style.display = "block";
-      resultBox.innerHTML = `<strong>Correct answer.</strong> ✅<br>Okay ${PERSON_NAME}… it’s a date (when you’re back).`;
-    });
-
-    obvBtn.addEventListener("click", () => {
-      resultBox.style.display = "block";
-      resultBox.innerHTML = `<strong>Best answer.</strong> ✅✅<br>${PERSON_NAME}, you just unlocked: snacks + a proper plan.`;
-    });
-  </script>
+window.addEventListener("scroll", revealSections);
+revealSections();
+</script>
 
 </body>
 </html>
